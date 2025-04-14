@@ -1,0 +1,26 @@
+﻿@model Product
+
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
+        <h4>
+            @Model?.Name
+            <span class="badge rounded-pill bg-primary text-white" style="float:right">
+                <small>@Model?.Price.ToString("c")</small>
+            </span>
+        </h4>
+        <form action="/" method="post">
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+            <span class="card card-text p-1 row">
+                <div class="col-8">
+                    @Model.Description
+                </div>
+                <div class="col-4">
+                    <button type="submit" style="float:right" class="btn btn-primary btn-sm float-right">Add to Cart</button>
+                </div>
+            </span>
+        </form>
+    </div>
+        
+</div>
+
